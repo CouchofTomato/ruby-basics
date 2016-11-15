@@ -7,15 +7,11 @@ def subtract(a, b)
 end
 
 def sum(arr)
-	sum = 0
-	arr.each {|x| sum = sum + x}
-	sum
+	arr.empty? ? 0 : arr.inject(:+)
 end
 
 def multiply(*nums)
-	answer = 1
-	nums.each {|x| answer = answer * x}
-	answer
+	nums.inject(:*)
 end
 
 def power(a,b)
@@ -23,14 +19,6 @@ def power(a,b)
 end
 
 def factorial(a)
-	if a == 0 || a == 1
-		return 1
-	end
-	sum = a * (a - 1)
-	a = a - 2
-	while a > 0
-		sum = sum * a
-		a = a - 1
-	end
-	return sum
+	return 1 if a == (0 || 1)
+	a.downto(1).inject(:*)
 end
